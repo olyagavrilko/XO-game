@@ -12,6 +12,7 @@ final class MenuViewController: UIViewController {
 
     private let computerGameButton = UIButton()
     private let twoPlayerGameButton = UIButton()
+    private let fiveMarksGameButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +37,39 @@ final class MenuViewController: UIViewController {
         NSLayoutConstraint.activate([
             twoPlayerGameButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             twoPlayerGameButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            twoPlayerGameButton.topAnchor.constraint(equalTo: computerGameButton.bottomAnchor, constant: 32)
+            twoPlayerGameButton.topAnchor.constraint(equalTo: computerGameButton.bottomAnchor, constant: 50)
+        ])
+
+        fiveMarksGameButton.setTitle("5 отметок", for: .normal)
+        fiveMarksGameButton.addTarget(self, action: #selector(fiveMarksGameButtonDidTap), for: .touchUpInside)
+        view.addSubview(fiveMarksGameButton)
+        fiveMarksGameButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fiveMarksGameButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            fiveMarksGameButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            fiveMarksGameButton.topAnchor.constraint(equalTo: twoPlayerGameButton.bottomAnchor, constant: 50)
         ])
     }
 
     @objc private func computerGameButtonDidTap() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let gameViewController = storyBoard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        gameViewController.computerGame = true
+
+        gameViewController.strategy = ManAndComputerStrategy()
 
         show(gameViewController, sender: nil)
     }
 
     @objc private func twoPlayerGameButtonDidTap() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let gameViewController = storyBoard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        
+        gameViewController.strategy = ManAndManStrategy()
+
+        show(gameViewController, sender: nil)
+    }
+
+    @objc private func fiveMarksGameButtonDidTap() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let gameViewController = storyBoard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
 

@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		1960284E27BFBBEC0070ECA2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960284D27BFBBEC0070ECA2 /* MenuViewController.swift */; };
 		1960285C27DB9E230070ECA2 /* ComputerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960285B27DB9E230070ECA2 /* ComputerGameState.swift */; };
-		198BA1E327DBAA2E00CB1E15 /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BA1E227DBAA2E00CB1E15 /* Computer.swift */; };
+		1971C39227DFCE8D00D7AE6F /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C39127DFCE8D00D7AE6F /* Strategy.swift */; };
+		198BA1EA27DF7DD400CB1E15 /* FiveMarksState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198BA1E927DF7DD400CB1E15 /* FiveMarksState.swift */; };
 		BAE3EC4727B2DBEF00231440 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3EC4627B2DBEF00231440 /* GameState.swift */; };
 		BAE3EC4927B2DC7100231440 /* PlayerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3EC4827B2DC7100231440 /* PlayerGameState.swift */; };
 		BAE3EC4B27B2DE9700231440 /* GameEndState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3EC4A27B2DE9700231440 /* GameEndState.swift */; };
@@ -38,7 +39,8 @@
 /* Begin PBXFileReference section */
 		1960284D27BFBBEC0070ECA2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1960285B27DB9E230070ECA2 /* ComputerGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGameState.swift; sourceTree = "<group>"; };
-		198BA1E227DBAA2E00CB1E15 /* Computer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computer.swift; sourceTree = "<group>"; };
+		1971C39127DFCE8D00D7AE6F /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		198BA1E927DF7DD400CB1E15 /* FiveMarksState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveMarksState.swift; sourceTree = "<group>"; };
 		BAE3EC4627B2DBEF00231440 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		BAE3EC4827B2DC7100231440 /* PlayerGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGameState.swift; sourceTree = "<group>"; };
 		BAE3EC4A27B2DE9700231440 /* GameEndState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndState.swift; sourceTree = "<group>"; };
@@ -85,6 +87,13 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		1971C39027DF9F0700D7AE6F /* PlayerCommand */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PlayerCommand;
+			sourceTree = "<group>";
+		};
 		BAE3EC4527B2DBDD00231440 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +101,7 @@
 				BAE3EC4827B2DC7100231440 /* PlayerGameState.swift */,
 				1960285B27DB9E230070ECA2 /* ComputerGameState.swift */,
 				BAE3EC4A27B2DE9700231440 /* GameEndState.swift */,
+				198BA1E927DF7DD400CB1E15 /* FiveMarksState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -104,7 +114,7 @@
 			path = Prototype;
 			sourceTree = "<group>";
 		};
-		BAE3EC4F27B2F23C00231440 /* Command */ = {
+		BAE3EC4F27B2F23C00231440 /* LoggerCommand */ = {
 			isa = PBXGroup;
 			children = (
 				BAE3EC5027B2F24D00231440 /* LoggerCommand.swift */,
@@ -113,7 +123,7 @@
 				BAE3EC5627B2F2B000231440 /* LogAction.swift */,
 				BAE3EC5827B2F44B00231440 /* LoggerFunc.swift */,
 			);
-			path = Command;
+			path = LoggerCommand;
 			sourceTree = "<group>";
 		};
 		F874E4642224621100364CAE = {
@@ -136,12 +146,14 @@
 			isa = PBXGroup;
 			children = (
 				1960285027DB89DE0070ECA2 /* Menu */,
-				BAE3EC4F27B2F23C00231440 /* Command */,
+				BAE3EC4F27B2F23C00231440 /* LoggerCommand */,
+				1971C39027DF9F0700D7AE6F /* PlayerCommand */,
 				BAE3EC4C27B2ED7200231440 /* Prototype */,
 				BAE3EC4527B2DBDD00231440 /* State */,
 				F874E4702224621100364CAE /* AppDelegate.swift */,
 				F874E4722224621100364CAE /* GameViewController.swift */,
 				F874E4F02225DFF700364CAE /* Referee.swift */,
+				1971C39127DFCE8D00D7AE6F /* Strategy.swift */,
 				F874E4E62225CB3F00364CAE /* Models */,
 				F874E4E52225CB3100364CAE /* Views */,
 				F874E4772224621300364CAE /* Assets.xcassets */,
@@ -178,7 +190,6 @@
 				F874E4F22225E0B100364CAE /* GameboardSize.swift */,
 				F874E4F42225E2CD00364CAE /* Gameboard.swift */,
 				F874E4EE2225DE4500364CAE /* Player.swift */,
-				198BA1E227DBAA2E00CB1E15 /* Computer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,9 +278,10 @@
 				F874E4E22225CABF00364CAE /* OView.swift in Sources */,
 				1960284E27BFBBEC0070ECA2 /* MenuViewController.swift in Sources */,
 				F874E4F32225E0B100364CAE /* GameboardSize.swift in Sources */,
-				198BA1E327DBAA2E00CB1E15 /* Computer.swift in Sources */,
 				F874E4E42225CB0700364CAE /* XView.swift in Sources */,
+				1971C39227DFCE8D00D7AE6F /* Strategy.swift in Sources */,
 				BAE3EC5727B2F2B000231440 /* LogAction.swift in Sources */,
+				198BA1EA27DF7DD400CB1E15 /* FiveMarksState.swift in Sources */,
 				BAE3EC4927B2DC7100231440 /* PlayerGameState.swift in Sources */,
 				BAE3EC4E27B2ED8000231440 /* Prototype.swift in Sources */,
 				BAE3EC4727B2DBEF00231440 /* GameState.swift in Sources */,

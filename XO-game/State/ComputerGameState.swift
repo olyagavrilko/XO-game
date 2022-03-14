@@ -11,7 +11,7 @@ import Foundation
 final class ComputerGameState: GameState {
 
     var isMoveCompleted: Bool = false
-    public let computer: Computer
+    public let player: Player
 
     weak var gameBoardView: GameboardView?
     weak var gameBoard: Gameboard?
@@ -19,8 +19,8 @@ final class ComputerGameState: GameState {
 
     let markViewPrototype: MarkView
 
-    init(computer: Computer, gameBoardView: GameboardView, gameBoard: Gameboard, gameViewController: GameViewController, markViewPrototype: MarkView) {
-        self.computer = computer
+    init(player: Player, gameBoardView: GameboardView, gameBoard: Gameboard, gameViewController: GameViewController, markViewPrototype: MarkView) {
+        self.player = player
         self.gameBoardView = gameBoardView
         self.gameBoard = gameBoard
         self.gameViewController = gameViewController
@@ -29,16 +29,31 @@ final class ComputerGameState: GameState {
     }
 
     func begin() {
-        gameViewController?.firstPlayerTurnLabel.isHidden = true
+        switch player {
+        case .first:
+            gameViewController?.firstPlayerTurnLabel.isHidden = false
+            gameViewController?.secondPlayerTurnLabel.isHidden = true
+
+            gameViewController?.firstPlayerTurnLabel.text = "Игрок 1: Компьютер"
+        case .second:
+            gameViewController?.firstPlayerTurnLabel.isHidden = true
+            gameViewController?.secondPlayerTurnLabel.isHidden = false
+
+            gameViewController?.secondPlayerTurnLabel.text = "Игрок 2: Компьютер"
+        }
+
+        gameViewController?.winnerLabel.isHidden = true
     }
     
     func addSign(at position: GameboardPosition) {
         guard let gameBoardView = gameBoardView,
-              gameBoardView.canPlaceMarkView(at: position) else {
+              gameBoardView.canPlaceMarkView(at: position)
+        else {
             return
         }
 
-        LoggerFunc.shared.log(action: .computerSetSign(computer: computer, position: position))
+        LoggerFunc.shared.log(action: .computerSetSign(player: player, position: position))
+        gameBoard?.setPlayer(player, at: position)
         gameBoardView.placeMarkView(markViewPrototype.copy(), at: position)
         isMoveCompleted = true
     }

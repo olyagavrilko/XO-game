@@ -29,22 +29,13 @@ class PlayerGameState: GameState {
     
     func addSign(at position: GameboardPosition) {
         guard let gameBoardView = gameBoardView,
-              gameBoardView.canPlaceMarkView(at: position) else {
-                  return
-              }
-        
-//        let markView: MarkView
-        
-//        switch player {
-//        case .first:
-//            markView = XView()
-//        case .second:
-//            markView = OView()
-//        }
+              gameBoardView.canPlaceMarkView(at: position)
+        else {
+            return
+        }
         
         LoggerFunc.shared.log(action: .playerSetSign(player: player, position: position))
         gameBoard?.setPlayer(player, at: position)
-//        gameBoardView.placeMarkView(markView, at: position)
         gameBoardView.placeMarkView(markViewPrototype.copy(), at: position)
         isMoveCompleted = true
     }
@@ -54,9 +45,13 @@ class PlayerGameState: GameState {
         case .first:
             gameViewController?.firstPlayerTurnLabel.isHidden = false
             gameViewController?.secondPlayerTurnLabel.isHidden = true
+
+            gameViewController?.firstPlayerTurnLabel.text = "Игрок 1: Человек"
         case .second:
             gameViewController?.firstPlayerTurnLabel.isHidden = true
             gameViewController?.secondPlayerTurnLabel.isHidden = false
+
+            gameViewController?.secondPlayerTurnLabel.text = "Игрок 2: Человек"
         }
         
         gameViewController?.winnerLabel.isHidden = true
