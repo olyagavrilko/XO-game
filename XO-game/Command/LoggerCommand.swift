@@ -19,6 +19,8 @@ class LoggerCommand {
         switch action {
         case .playerSetSign(let player, let position):
             return "\(player) placed sign at postion \(position)"
+        case .computerSetSign(computer: let computer, position: let position):
+            return "\(computer) placed sign at postion \(position)"
         case .gameFinished(let winner):
             if let winner = winner {
                 return "\(winner) won the game"

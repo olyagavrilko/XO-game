@@ -15,6 +15,8 @@ class GameViewController: UIViewController {
     @IBOutlet var secondPlayerTurnLabel: UILabel!
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var restartButton: UIButton!
+
+    var computerGame = false
     
     private var gameBoard: Gameboard = Gameboard()
     private lazy var referee: Referee = Referee(gameboard: gameBoard)
@@ -28,10 +30,13 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if computerGame {
+            secondPlayerTurnLabel.text = "computer"
+        }
         
         firstPlayerTurn()
         selectPosition()
-        
     }
     
     private func selectPosition() {
@@ -39,10 +44,31 @@ class GameViewController: UIViewController {
             guard let self = self else { return }
             
             self.counter += 1
-            self.currentState.addSign(at: position)
-            
+
+            if self.currentState is ComputerGameState {
+
+                var computerPosition: GameboardPosition
+
+                repeat {
+                    let column = Int.random(in: 0...2)
+                    let row = Int.random(in: 0...2)
+                    computerPosition = GameboardPosition(column: column, row: row)
+                } while !self.gameboardView.canPlaceMarkView(at: computerPosition)
+
+
+                self.currentState.addSign(at: computerPosition)
+            } else {
+                self.currentState.addSign(at: position)
+            }
+
             if self.currentState.isMoveCompleted {
                 self.nextPlayerTurn()
+
+                if self.currentState is ComputerGameState {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.gameboardView.onSelectPosition?(GameboardPosition(column: 0, row: 0))
+                    }
+                }
             }
         }
     }
@@ -64,10 +90,20 @@ class GameViewController: UIViewController {
             LoggerFunc.shared.log(action: .gameFinished(winner: nil))
             return
         }
-        
-        if let playerState = currentState as? PlayerGameState {
-            let nextPlayer = playerState.player.next
-            currentState = PlayerGameState(player: nextPlayer, gameBoardView: gameboardView, gameBoard: gameBoard, gameViewController: self, markViewPrototype: nextPlayer.markViewPrototype)
+
+        if computerGame {
+            if currentState is ComputerGameState {
+                let nextPlayer: Player = .first
+                currentState = PlayerGameState(player: nextPlayer, gameBoardView: gameboardView, gameBoard: gameBoard, gameViewController: self, markViewPrototype: nextPlayer.markViewPrototype)
+            } else if currentState is PlayerGameState {
+                let nextPlayer: Computer = Computer()
+                currentState = ComputerGameState(computer: nextPlayer, gameBoardView: gameboardView, gameBoard: gameBoard, gameViewController: self, markViewPrototype: nextPlayer.markViewPrototype)
+            }
+        } else {
+            if let playerState = currentState as? PlayerGameState {
+                let nextPlayer = playerState.player.next
+                currentState = PlayerGameState(player: nextPlayer, gameBoardView: gameboardView, gameBoard: gameBoard, gameViewController: self, markViewPrototype: nextPlayer.markViewPrototype)
+            }
         }
     }
     
@@ -81,4 +117,3 @@ class GameViewController: UIViewController {
         firstPlayerTurn()
     }
 }
-

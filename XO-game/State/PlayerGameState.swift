@@ -33,7 +33,7 @@ class PlayerGameState: GameState {
                   return
               }
         
-        let markView: MarkView
+//        let markView: MarkView
         
 //        switch player {
 //        case .first:
@@ -61,6 +61,4 @@ class PlayerGameState: GameState {
         
         gameViewController?.winnerLabel.isHidden = true
     }
-    
-    
 }
