@@ -73,6 +73,8 @@ final class MenuViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let gameViewController = storyBoard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
 
+        gameViewController.strategy = FiveMarksStrategy()
+
         show(gameViewController, sender: nil)
     }
 }
