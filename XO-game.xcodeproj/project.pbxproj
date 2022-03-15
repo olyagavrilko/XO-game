@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1960284E27BFBBEC0070ECA2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960284D27BFBBEC0070ECA2 /* MenuViewController.swift */; };
+		1960285C27DB9E230070ECA2 /* ComputerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960285B27DB9E230070ECA2 /* ComputerGameState.swift */; };
+		1971C39227DFCE8D00D7AE6F /* Strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C39127DFCE8D00D7AE6F /* Strategy.swift */; };
+		1971C39827DFE98600D7AE6F /* MarkCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C39727DFE98600D7AE6F /* MarkCommand.swift */; };
+		1971C39F27DFF31D00D7AE6F /* FiveMarksGameExecutionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C39E27DFF31D00D7AE6F /* FiveMarksGameExecutionState.swift */; };
+		1971C3A527DFFA4500D7AE6F /* ManAndManStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C3A427DFFA4500D7AE6F /* ManAndManStrategy.swift */; };
+		1971C3A927DFFA6100D7AE6F /* ManAndComputerStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C3A827DFFA6100D7AE6F /* ManAndComputerStrategy.swift */; };
+		1971C3AC27DFFA8100D7AE6F /* FiveMarksStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971C3AB27DFFA8100D7AE6F /* FiveMarksStrategy.swift */; };
 		BAE3EC4727B2DBEF00231440 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3EC4627B2DBEF00231440 /* GameState.swift */; };
 		BAE3EC4927B2DC7100231440 /* PlayerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3EC4827B2DC7100231440 /* PlayerGameState.swift */; };
 		BAE3EC4B27B2DE9700231440 /* GameEndState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE3EC4A27B2DE9700231440 /* GameEndState.swift */; };
@@ -33,6 +41,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1960284D27BFBBEC0070ECA2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1960285B27DB9E230070ECA2 /* ComputerGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGameState.swift; sourceTree = "<group>"; };
+		1971C39127DFCE8D00D7AE6F /* Strategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strategy.swift; sourceTree = "<group>"; };
+		1971C39727DFE98600D7AE6F /* MarkCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkCommand.swift; sourceTree = "<group>"; };
+		1971C39E27DFF31D00D7AE6F /* FiveMarksGameExecutionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveMarksGameExecutionState.swift; sourceTree = "<group>"; };
+		1971C3A427DFFA4500D7AE6F /* ManAndManStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManAndManStrategy.swift; sourceTree = "<group>"; };
+		1971C3A827DFFA6100D7AE6F /* ManAndComputerStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManAndComputerStrategy.swift; sourceTree = "<group>"; };
+		1971C3AB27DFFA8100D7AE6F /* FiveMarksStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveMarksStrategy.swift; sourceTree = "<group>"; };
 		BAE3EC4627B2DBEF00231440 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		BAE3EC4827B2DC7100231440 /* PlayerGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGameState.swift; sourceTree = "<group>"; };
 		BAE3EC4A27B2DE9700231440 /* GameEndState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndState.swift; sourceTree = "<group>"; };
@@ -71,12 +87,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1960285027DB89DE0070ECA2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1960284D27BFBBEC0070ECA2 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		1971C39027DF9F0700D7AE6F /* MarkCommand */ = {
+			isa = PBXGroup;
+			children = (
+				1971C39727DFE98600D7AE6F /* MarkCommand.swift */,
+			);
+			path = MarkCommand;
+			sourceTree = "<group>";
+		};
+		1971C3A327DFFA0B00D7AE6F /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				1971C39127DFCE8D00D7AE6F /* Strategy.swift */,
+				1971C3A427DFFA4500D7AE6F /* ManAndManStrategy.swift */,
+				1971C3A827DFFA6100D7AE6F /* ManAndComputerStrategy.swift */,
+				1971C3AB27DFFA8100D7AE6F /* FiveMarksStrategy.swift */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
 		BAE3EC4527B2DBDD00231440 /* State */ = {
 			isa = PBXGroup;
 			children = (
 				BAE3EC4627B2DBEF00231440 /* GameState.swift */,
 				BAE3EC4827B2DC7100231440 /* PlayerGameState.swift */,
+				1960285B27DB9E230070ECA2 /* ComputerGameState.swift */,
 				BAE3EC4A27B2DE9700231440 /* GameEndState.swift */,
+				1971C39E27DFF31D00D7AE6F /* FiveMarksGameExecutionState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -89,7 +134,7 @@
 			path = Prototype;
 			sourceTree = "<group>";
 		};
-		BAE3EC4F27B2F23C00231440 /* Command */ = {
+		BAE3EC4F27B2F23C00231440 /* LoggerCommand */ = {
 			isa = PBXGroup;
 			children = (
 				BAE3EC5027B2F24D00231440 /* LoggerCommand.swift */,
@@ -98,7 +143,7 @@
 				BAE3EC5627B2F2B000231440 /* LogAction.swift */,
 				BAE3EC5827B2F44B00231440 /* LoggerFunc.swift */,
 			);
-			path = Command;
+			path = LoggerCommand;
 			sourceTree = "<group>";
 		};
 		F874E4642224621100364CAE = {
@@ -120,9 +165,12 @@
 		F874E46F2224621100364CAE /* XO-game */ = {
 			isa = PBXGroup;
 			children = (
-				BAE3EC4F27B2F23C00231440 /* Command */,
+				1960285027DB89DE0070ECA2 /* Menu */,
+				BAE3EC4F27B2F23C00231440 /* LoggerCommand */,
+				1971C39027DF9F0700D7AE6F /* MarkCommand */,
 				BAE3EC4C27B2ED7200231440 /* Prototype */,
 				BAE3EC4527B2DBDD00231440 /* State */,
+				1971C3A327DFFA0B00D7AE6F /* Strategies */,
 				F874E4702224621100364CAE /* AppDelegate.swift */,
 				F874E4722224621100364CAE /* GameViewController.swift */,
 				F874E4F02225DFF700364CAE /* Referee.swift */,
@@ -240,21 +288,29 @@
 				F874E4732224621100364CAE /* GameViewController.swift in Sources */,
 				F874E4DD2225C25D00364CAE /* GameboardPosition.swift in Sources */,
 				F874E4DF2225C76000364CAE /* MarkView.swift in Sources */,
+				1960285C27DB9E230070ECA2 /* ComputerGameState.swift in Sources */,
 				BAE3EC5327B2F25500231440 /* LoggerInvoker.swift in Sources */,
 				F874E4F12225DFF700364CAE /* Referee.swift in Sources */,
 				F874E4F52225E2CD00364CAE /* Gameboard.swift in Sources */,
+				1971C3A927DFFA6100D7AE6F /* ManAndComputerStrategy.swift in Sources */,
+				1971C39827DFE98600D7AE6F /* MarkCommand.swift in Sources */,
 				BAE3EC4B27B2DE9700231440 /* GameEndState.swift in Sources */,
 				BAE3EC5927B2F44B00231440 /* LoggerFunc.swift in Sources */,
 				F874E4712224621100364CAE /* AppDelegate.swift in Sources */,
 				F874E4E22225CABF00364CAE /* OView.swift in Sources */,
+				1960284E27BFBBEC0070ECA2 /* MenuViewController.swift in Sources */,
 				F874E4F32225E0B100364CAE /* GameboardSize.swift in Sources */,
 				F874E4E42225CB0700364CAE /* XView.swift in Sources */,
+				1971C39227DFCE8D00D7AE6F /* Strategy.swift in Sources */,
+				1971C3AC27DFFA8100D7AE6F /* FiveMarksStrategy.swift in Sources */,
 				BAE3EC5727B2F2B000231440 /* LogAction.swift in Sources */,
 				BAE3EC4927B2DC7100231440 /* PlayerGameState.swift in Sources */,
 				BAE3EC4E27B2ED8000231440 /* Prototype.swift in Sources */,
 				BAE3EC4727B2DBEF00231440 /* GameState.swift in Sources */,
+				1971C3A527DFFA4500D7AE6F /* ManAndManStrategy.swift in Sources */,
 				BAE3EC5527B2F26000231440 /* LoggerReceiver.swift in Sources */,
 				BAE3EC5127B2F24D00231440 /* LoggerCommand.swift in Sources */,
+				1971C39F27DFF31D00D7AE6F /* FiveMarksGameExecutionState.swift in Sources */,
 				F874E4DB2225C1AC00364CAE /* GameboardView.swift in Sources */,
 				F874E4EF2225DE4500364CAE /* Player.swift in Sources */,
 			);
